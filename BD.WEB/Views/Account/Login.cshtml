@@ -1,0 +1,45 @@
+﻿@model BD.WEB.Models.ACCVM.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div style="padding:20px">
+            <img src="https://i.pinimg.com/originals/26/a1/6c/26a16cbe6c24539d6fec034e43716d2e.png" height="350" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div style="padding:20px">
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <h4 style="color:#0078d4"><strong>Log in to Blood Donation</strong></h4>
+                <br />
+                <div class="form-group">
+                    <label class="text-capitalize">EMAIL ADDRESS</label>
+                    <input id="user" asp-for="Email" required type="text" class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="pass" class="text-capitalize">PASSWORD</label>
+                    <input id="pass" type="password" required asp-for="Password" class="form-control" data-type="password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="IncorrectInput" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.HiddenFor(model => Model.ReturnUrl)
+                </div>
+                <div class="form-group" style="padding-top:30px">
+                    <input type="submit" class="btn btn-block custom-btn" value="Login">
+                </div>
+                <div class="form-group" style="text-align:center">
+                    <a href="/Account/ForgotPassword" style="color:red;text-align:right;font-size:13px">Forgot password?</a>
+                </div>
+                <div class="form-group" style="text-align:center">
+                    <a href="/Account/Register" style="color:darkblue;font-size:13px">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

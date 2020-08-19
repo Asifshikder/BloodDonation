@@ -1,0 +1,47 @@
+﻿@model BD.WEB.Models.DonorVM
+@{
+    ViewData["Title"] = "EditProfile";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="col-lg-12" style="padding-top:30px">
+            <div class="text-right">
+                <a href="/Account/Profile" class="btn custom-btn">Back to Profile</a>
+                <a href="/Account/ChangePassword" class="btn custom-btn">Change Password</a>
+            </div>
+        </div>
+        <form asp-controller="Account" asp-action="EditProfileConfirm" method="post">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input asp-for="FullName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input asp-for="Address" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input asp-for="Contact" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Another Number</label>
+                    <input asp-for="Contact2" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    @Html.DropDownList("CityID", (SelectList)ViewBag.City, "Select City", new { @class = "form-control", @required = "Select City" })
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    @Html.DropDownList("BloodGroupID", (SelectList)ViewBag.BloodGroup, "Select Blood Group", new { @class = "form-control", @required = "Select Blood Group" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn custom-btn">Save Change</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

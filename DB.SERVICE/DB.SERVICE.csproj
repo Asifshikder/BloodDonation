@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BD.DATA\BD.DATA.csproj" />
+    <ProjectReference Include="..\BD.REPO\BD.REPO.csproj" />
+  </ItemGroup>
+
+</Project>

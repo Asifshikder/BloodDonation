@@ -1,0 +1,58 @@
+﻿@{ ViewData["Title"] = "Home"; }
+<style>
+    .banner {
+        width: 100%;
+        height: 20vh;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="banner">
+            <div class="text-center">
+                <h3>Welcome to Blood Donation</h3>
+                <h5>Your donation can save a life </h5>
+                <a asp-controller="Account" asp-action="Register" class="btn custom-btn">Become a Donor</a>
+                <a id="searchbtn" class="btn custom-btn">Find a Donor</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlsearch" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Search Donor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Home" asp-action="Search" method="get">
+                    <div class="form-group">
+                        @Html.DropDownList("BloodGroup", (SelectList)ViewBag.BloodGroup,"Select Blood Group", new { @class = "form-control", @required = "Select Blood Group" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownList("City", (SelectList)ViewBag.City, "Select City",new { @class = "form-control", @required = "Select City" })
+                    </div>
+                    <div class="form-group">
+                        <div class="text-center">
+                            <button type="submit" class="btn custom-btn">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#searchbtn").click(function (e) {
+            $("#mdlsearch").modal('show');
+        });
+
+    });
+</script>
+

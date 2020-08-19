@@ -1,0 +1,92 @@
+﻿@model BD.WEB.Models.ACCVM.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-lg-4">
+        <div style="padding:20px">
+            <img src="https://i.pinimg.com/originals/26/a1/6c/26a16cbe6c24539d6fec034e43716d2e.png" height="250" />
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div style="padding:20px">
+            <form asp-controller="Account" asp-action="Register" method="post">
+                <div class="col-lg-12 text-center"> 
+                    <h4 style="color:#0078d4"><strong>Register as Donor & Become a Hero</strong></h4>
+                    <br />
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">Your Name</label>
+                        <input id="user" asp-for="FullName" required type="text" class="form-control">
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">Email</label>
+                        <input id="user" asp-for="Email" required type="text" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">Primary Phone</label>
+                        <input id="user" asp-for="PhoneNumber" required type="text" class="form-control">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">Other Phone</label>
+                        <input id="user" asp-for="COntactNumber" required type="text" class="form-control">
+                        <span asp-validation-for="COntactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">Blood Group</label>
+                        @Html.DropDownList("BloodGroupID", (SelectList)ViewBag.BloodGroup, "Select Blood Group", new { @class = "form-control", @required = "Select Blood Group" })
+                        <span asp-validation-for="BloodGroupID" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="text-capitalize">City</label>
+                        @Html.DropDownList("CityID", (SelectList)ViewBag.City, "Select City", new { @class = "form-control", @required = "Select City" })
+                        <span asp-validation-for="CityID" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="pass" class="text-capitalize">Chose Password</label>
+                        <input id="pass" type="password" required asp-for="Password" class="form-control" data-type="password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="pass" class="text-capitalize">Confirm Password</label>
+                        <input id="pass" type="password" required asp-for="PasswordConfirmation" class="form-control" data-type="password">
+                        <span asp-validation-for="PasswordConfirmation" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.HiddenFor(model => Model.ReturnUrl)
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group" style="padding-top:30px">
+                        <input type="submit" class="btn btn-block custom-btn" value="Submit and Register">
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group text-center">
+                        <p style="color:#0078d4"> Already have account?<a asp-controller="Account" asp-action="Login">Login here</a></p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

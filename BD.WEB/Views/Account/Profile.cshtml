@@ -1,0 +1,24 @@
+﻿@model BD.DATA.Entity.ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <h3>@Model.Fullname</h3>
+        </div>
+        <div class="col-lg-6" style="padding:20px">
+            <div class="text-right">
+                <a href="/Account/EditProfile" class="btn custom-btn">Edit Profile</a>
+                <a href="/Account/ChangePassword" class="btn custom-btn">Change Password</a>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <p>@Model.Email</p>
+            <p>@Model.Address</p>
+            <p>@Model.PhoneNumber</p>
+            <p>@Model.ContactNumber</p>
+        </div>
+    </div>
+</div>
+

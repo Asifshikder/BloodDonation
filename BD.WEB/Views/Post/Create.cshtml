@@ -1,0 +1,32 @@
+﻿@model BD.DATA.Entity.Post
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+     <div class="col-lg-12" style="padding:20px">
+         <div class="text-center">Create a post seeking Blood</div>
+        <form asp-controller="Post" asp-action="CreateConfirm" method="post">
+            <div class="form-group">
+                <label>Headline</label>
+                <input asp-for="Headline" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input asp-for="Description" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input asp-for="Location" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>BloodGroup</label>
+                @Html.DropDownList("BloodGroupID", (SelectList)ViewBag.BloodGroup, "Select Blood Group", new { @class = "form-control", @required = "Select Blood Group" })
+
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn custom-btn">Post</button>
+            </div>
+        </form>
+     </div>
+</div>
